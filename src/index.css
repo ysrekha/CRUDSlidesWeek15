@@ -1,69 +1,139 @@
+/* Global styles applied to the root element of the document */
 :root {
+  /* Set a list of fallback fonts to use for the document */
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
+  /* Set the line height to improve readability */
   line-height: 1.5;
+  
+  /* Set the default font weight for text */
   font-weight: 400;
 
+  /* Specify the color schemes supported by the document (light and dark) */
   color-scheme: light dark;
+  
+  /* Set the default text color with some transparency */
   color: rgba(255, 255, 255, 0.87);
+  
+  /* Set the background color for the root element */
   background-color: #242424;
 
+  /* Prevent the browser from synthesizing missing font styles (e.g., bold, italic) */
   font-synthesis: none;
+
+  /* Optimize text rendering for legibility */
   text-rendering: optimizeLegibility;
+
+  /* Improve text rendering on webkit browsers */
   -webkit-font-smoothing: antialiased;
+  
+  /* Improve text rendering on Firefox on macOS */
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Styles for all anchor (<a>) elements */
 a {
+  /* Set the font weight to medium for anchor elements */
   font-weight: 500;
+  
+  /* Set the text color for anchor elements */
   color: #646cff;
+  
+  /* Remove underline from anchor elements */
   text-decoration: inherit;
 }
+
+/* Styles for anchor elements when hovered over */
 a:hover {
+  /* Change the text color when the anchor element is hovered */
   color: #535bf2;
 }
 
+/* Styles for the body of the document */
 body {
+  /* Remove default margin */
   margin: 0;
+  
+  /* Use Flexbox layout to center content horizontally and vertically */
   display: flex;
   place-items: center;
+  
+  /* Set minimum width and height to ensure proper display on smaller screens */
   min-width: 320px;
   min-height: 100vh;
 }
 
+/* Styles for <h1> elements */
 h1 {
+  /* Set the font size for <h1> elements */
   font-size: 3.2em;
+  
+  /* Adjust the line height for <h1> elements */
   line-height: 1.1;
 }
 
+/* Styles for button elements */
 button {
+  /* Round the corners of the button */
   border-radius: 8px;
+  
+  /* Set a transparent border to avoid layout shifts */
   border: 1px solid transparent;
+  
+  /* Add padding to the button */
   padding: 0.6em 1.2em;
+  
+  /* Set the font size for button text */
   font-size: 1em;
+  
+  /* Set the font weight for button text */
   font-weight: 500;
+  
+  /* Inherit font family from the parent element */
   font-family: inherit;
+  
+  /* Set the background color for the button */
   background-color: #1a1a1a;
+  
+  /* Change the cursor to a pointer when hovering over the button */
   cursor: pointer;
+  
+  /* Add a transition effect for border color changes */
   transition: border-color 0.25s;
 }
+
+/* Styles for button elements when hovered over */
 button:hover {
+  /* Change the border color when the button is hovered */
   border-color: #646cff;
 }
+
+/* Styles for button elements when they are focused */
 button:focus,
 button:focus-visible {
+  /* Add an outline to the button when focused */
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+/* Styles applied when the user prefers a light color scheme */
 @media (prefers-color-scheme: light) {
   :root {
+    /* Set text color for light color scheme */
     color: #213547;
+    
+    /* Set background color for light color scheme */
     background-color: #ffffff;
   }
+  
+  /* Styles for anchor elements when hovered over in a light color scheme */
   a:hover {
+    /* Change the text color when hovered over in a light color scheme */
     color: #747bff;
   }
+  
+  /* Styles for buttons in a light color scheme */
   button {
+    /* Set a light background color for buttons in a light color scheme */
     background-color: #f9f9f9;
   }
 }
-
