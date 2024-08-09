@@ -1,22 +1,22 @@
-// Define a type for the props that the ToolbarButton component will receive
+// Define the type for the props expected by the ToolbarButton component
 type ToolbarButtonProps = {
-    icon: string,    // URL or path to the icon image to be displayed
-    onClick: () => void // Function to be called when the button is clicked
-}
-
-// Define and export the ToolbarButton component
-export default function ToolbarButton({ icon, onClick }: ToolbarButtonProps) {
+    icon: string; // URL or path to the icon image to be displayed on the button
+    onClick: () => void; // Function to call when the button is clicked
+  };
+  
+  // Define the ToolbarButton component
+  export default function ToolbarButton({ icon, onClick }: ToolbarButtonProps) {
     return (
-        // Button element with styling and click event handler
-        <button
-            className="btn btn-outline-secondary me-2" // Bootstrap classes for styling
-            onClick={onClick} // Attach the click event handler
-        >
-            {/* Image element for the icon */}
-            <img 
-                src={icon} // Source URL or path for the icon image
-                style={{ width: "2.5rem", height: "2.5rem" }} // Inline styles to set the size of the icon
-            />
-        </button>
-    )
-}
+      <button
+        className="btn btn-outline-secondary me-2" // Bootstrap styling for the button
+        onClick={onClick} // Set the onClick handler to the passed in function
+      >
+        <img 
+          src={icon} // Set the source of the image to the passed in icon URL
+          style={{ width: "2.5rem", height: "2.5rem" }} // Inline styles for the image size
+          alt="toolbar icon" // Accessibility: Provide an alternative text for the image
+        />
+      </button>
+    );
+  }
+  

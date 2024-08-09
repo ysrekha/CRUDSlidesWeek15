@@ -1,30 +1,21 @@
-// Define and export the SlideView component
-export default function SlideView() {
-    // Define a variable for the height of the slide view container
-    let slideHeight = 600;
-    
-    // Return the JSX structure for the SlideView component
+// Define the type for the props expected by the SlideView component
+type SlideViewProps = {
+    itemCount: number; // The number of items to display or manage
+    bgColor: string; // The background color for the SlideView component
+  }
+  
+  // Define the SlideView component
+  export default function SlideView({ itemCount, bgColor }: SlideViewProps) {
     return (
-        // Outer div container using Flexbox layout
-        <div className="flex-grow-1 d-flex flex-column">
-            {/* Inner div for the slide view area */}
-            <div className="d-flex flex-grow-1 justify-content-center bg-light align-items-center">
-                {/* Container for the slide view with styling and dynamic height */}
-                <div 
-                    className="bg-white m-3 w-75 shadow-sm p-3 border" 
-                    style={{ height: slideHeight + "px" }}
-                >
-                    Slide View
-                </div>
-            </div>
-            
-            {/* Textarea for speaker notes */}
-            <div>
-                <textarea 
-                    className="form-control" 
-                    defaultValue="Speaker Notes"
-                />
-            </div>
-        </div>
+      <div 
+        style={{ 
+          backgroundColor: bgColor, // Set the background color based on the bgColor prop
+          flexGrow: 1 // Allow the div to grow and fill the available space
+        }}
+      >
+        <h2>Item Count: {itemCount}</h2> {/* Display the count of items */}
+        {/* Render slides or other content here */}
+      </div>
     );
-}
+  }
+  

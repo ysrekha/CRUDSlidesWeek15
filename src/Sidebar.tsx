@@ -1,50 +1,29 @@
-// Import the SlideThumbnail component, which will be used to display individual slide thumbnails
-import SlideThumbnail from "./SlideThumbnail";
+import SlideThumbnail from './SlideThumbnail';
 
-// Import image assets to be used as slide thumbnails
-import thumbnailImage from "./assets/Flower.png";
-import LavenderImage from "./assets/Lavender.png";
-import Roses from "./assets/Roses.png";
-import Peace from "./assets/Peace.png";
-import Birthday from "./assets/BirthdayFlowers.png";
+// Define the type for the props expected by the Sidebar component
+type SidebarProps = {
+  sideItems: { // Array of sidebar items
+    id: number; // Unique identifier for each item
+    order: number; // Order of the item in the list
+    image: string; // URL or path to the image associated with the item
+  }[];
+  onDelete: (id: number) => void; // Function to call when an item needs to be deleted, expects the item's ID
+  onEdit: (id: number) => void; // Function to call when an item needs to be edited, expects the item's ID
+};
 
-// Define an array of slide objects, each representing a slide with an id, order, and image
-const testSlides = [
-    {
-        id: 0,         // Unique identifier for the slide
-        order: 1,      // Order of the slide, used for sorting or display purposes
-        image: thumbnailImage // Path to the image asset for the slide
-    },
-    {
-        id: 1,
-        order: 2,
-        image: Birthday
-    },
-    {
-        id: 2,
-        order: 3,
-        image: LavenderImage
-    },
-    {
-        id: 3,
-        order: 4,
-        image: Roses
-    },
-    {
-        id: 4,
-        order: 5,
-        image: Peace
-    }
-];
-
-// Define and export the Sidebar component
-export default function Sidebar() {
-    return (
-        // Container for the sidebar with styling classes for layout and appearance
-        <div className="border-end bg-light p-3 d-flex flex-column vh-100 overflow-auto">
-            {/* Map over the testSlides array to render a SlideThumbnail component for each slide */}
-            {/* Each SlideThumbnail receives a unique key and the slide data as props */}
-            {testSlides.map(s => <SlideThumbnail key={s.id} slide={s} />)}
-        </div>
-    );
+// Define the Sidebar component
+export default function Sidebar({ sideItems, onDelete, onEdit }: SidebarProps) {
+  return (
+    <div className="border-end bg-light p-3 d-flex flex-column vh-100 overflow-auto">
+      {/* Map through the sidebar items and render a SlideThumbnail for each */}
+      {sideItems.map((s) => (
+        <SlideThumbnail
+          key={s.id} // Use the item's ID as the key for React's reconciliation
+          slide={s} // Pass the entire sidebar item to SlideThumbnail
+          onDelete={onDelete} // Pass the onDelete function as a prop
+          onEdit={() => onEdit(s.id)} // Call the onEdit function with the item's ID when edit action is triggered
+        />
+      ))}
+    </div>
+  );
 }
