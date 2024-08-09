@@ -1,3 +1,20 @@
+/*
+At this point, your project must meets these new requirements:
+
+A user can create new items (the new items will all have the same data)
+A user can delete items
+A user can update at least one property on the items
+
+
+As well as the requirements from last week:
+
+It has at least 3 React components
+It’s displaying the test data
+It’s using at least 1 prop
+
+*/
+
+
 import { useState } from 'react';
 import Sidebar from './Sidebar';
 import SlideView from './SlideView';
